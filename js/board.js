@@ -129,6 +129,20 @@ export async function renderBoard() {
             square.classList.add("selected");
         }
 
+        square.classList.remove("legal-move");
+
+        const isLegalMove = game.legalMoves.some(move => {
+
+            return move.row === row && move.col === col;
+
+        });
+
+        if (isLegalMove) {
+
+            square.classList.add("legal-move");
+
+        }
+
         const piece = game.board[row][col];
 
         square.innerHTML = "";
