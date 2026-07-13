@@ -27,6 +27,16 @@ export function selectSquare(row, col) {
 
             game.board[game.selected.row][game.selected.col] = null;
 
+            // Меняем игрока
+
+            game.currentPlayer =
+                game.currentPlayer === "white"
+                    ? "black"
+                    : "white";
+
+            // Сбрасываем выбор
+
+
             game.selected = null;
 
             game.legalMoves = [];
