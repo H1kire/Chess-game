@@ -6,9 +6,48 @@ export function selectSquare(row, col) {
 
     const piece = game.board[row][col];
 
+    // ============================
+    // Если уже выбрана фигура
+    // ============================
+
+    if (game.selected) {
+
+        const isLegalMove = game.legalMoves.some(move => {
+
+            return move.row === row && move.col === col;
+
+        });
+
+        if (isLegalMove) {
+
+            const selectedPiece =
+                game.board[game.selected.row][game.selected.col];
+
+            game.board[row][col] = selectedPiece;
+
+            game.board[game.selected.row][game.selected.col] = null;
+
+            game.selected = null;
+
+            game.legalMoves = [];
+
+            renderBoard();
+
+            return;
+
+        }
+
+    }
+
+    // ============================
+    // Клик по пустой клетке
+    // ============================
+
     if (!piece) {
 
         game.selected = null;
+
+        game.legalMoves = [];
 
         renderBoard();
 
@@ -16,11 +55,19 @@ export function selectSquare(row, col) {
 
     }
 
+    // ============================
+    // Не свой ход
+    // ============================
+
     if (piece.color !== game.currentPlayer) {
 
         return;
 
     }
+
+    // ============================
+    // Выбор фигуры
+    // ============================
 
     game.selected = {
 
@@ -30,7 +77,8 @@ export function selectSquare(row, col) {
 
     };
 
-    game.legalMoves = getLegalMoves(piece, row, col);
+    game.legalMoves =
+        getLegalMoves(piece, row, col);
 
     renderBoard();
 
