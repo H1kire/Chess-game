@@ -1,5 +1,7 @@
 import { game } from "./game.js";
 import { renderBoard } from "./board.js";
+import { getLegalMoves } from "./moves.js";
+
 export function selectSquare(row, col) {
 
     const piece = game.board[row][col];
@@ -27,6 +29,8 @@ export function selectSquare(row, col) {
         col
 
     };
+
+    game.legalMoves = getLegalMoves(piece, row, col);
 
     renderBoard();
 
