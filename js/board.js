@@ -3,6 +3,8 @@ import {
     getPieceSvg
 } from "./pieces.js";
 import { game } from "./game.js";
+import { selectSquare } from "./ui.js";
+
 
 const boardElement = document.getElementById("board");
 
@@ -27,8 +29,13 @@ export function createBoard() {
             square.dataset.row = row;
             square.dataset.col = col;
 
-            boardElement.appendChild(square);
+            square.addEventListener("click", () => {
 
+                selectSquare(row, col);
+
+            });
+
+            boardElement.appendChild(square);
         }
 
     }
@@ -89,7 +96,7 @@ export function startNewGame() {
 
     game.selected = null;
 
-    game.turn = "white";
+    game.currentPlayer  = "white";
 
     game.capturedWhite = [];
 
@@ -111,6 +118,16 @@ export async function renderBoard() {
 
         const row = Number(square.dataset.row);
         const col = Number(square.dataset.col);
+
+        square.classList.remove("selected");
+
+        if (
+            game.selected &&
+            game.selected.row === row &&
+            game.selected.col === col
+        ) {
+            square.classList.add("selected");
+        }
 
         const piece = game.board[row][col];
 

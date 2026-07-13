@@ -95,3 +95,10 @@
 
 }
 
+.square.selected {
+
+    outline: 4px solid #ffd54a;
+
+    outline-offset: -4px;
+
+}

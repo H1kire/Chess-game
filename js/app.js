@@ -14,7 +14,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     startNewGame();
 
-
-    renderBoard();
+    window.game = game;
+    window.renderBoard = renderBoard;
 
 });

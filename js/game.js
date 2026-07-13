@@ -2,7 +2,7 @@ export const game = {
 
     board: [],
 
-    turn: "white",
+    currentPlayer: "white",
 
     selected: null,
 
