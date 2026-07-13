@@ -62,7 +62,9 @@ function getPawnMoves(piece, row, col) {
 
             row: row + direction,
 
-            col
+            col,
+
+            type: "move"
 
         });
 
@@ -79,13 +81,49 @@ function getPawnMoves(piece, row, col) {
 
                 row: row + direction * 2,
 
-                col
+                col,
+
+                type: "move"
 
             });
 
         }
 
     }
+
+    // ==========================================
+// Взятие по диагонали
+// ==========================================
+
+    const captureOffsets = [-1, 1];
+
+    captureOffsets.forEach(offset => {
+
+        const targetRow = row + direction;
+
+        const targetCol = col + offset;
+
+        const targetPiece =
+            game.board[targetRow]?.[targetCol];
+
+        if (
+            targetPiece &&
+            targetPiece.color !== piece.color
+        ) {
+
+            moves.push({
+
+                row: targetRow,
+
+                col: targetCol,
+
+                type: "capture"
+
+            });
+
+        }
+
+    });
 
     return moves;
 

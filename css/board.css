@@ -135,3 +135,15 @@
     pointer-events: none;
 
 }
+
+/* ===========================
+   Возможность взятия
+=========================== */
+
+.square.legal-capture {
+
+    outline: 3px solid crimson;
+
+    outline-offset: -3px;
+
+}

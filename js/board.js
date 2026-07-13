@@ -119,36 +119,69 @@ export async function renderBoard() {
         const row = Number(square.dataset.row);
         const col = Number(square.dataset.col);
 
+        // ==========================
+        // Сбрасываем подсветки
+        // ==========================
+
         square.classList.remove("selected");
+        square.classList.remove("legal-move");
+        square.classList.remove("legal-capture");
+
+        // ==========================
+        // Выбранная фигура
+        // ==========================
 
         if (
             game.selected &&
             game.selected.row === row &&
             game.selected.col === col
         ) {
+
             square.classList.add("selected");
+
         }
 
-        square.classList.remove("legal-move");
+        // ==========================
+        // Возможные ходы
+        // ==========================
 
-        const isLegalMove = game.legalMoves.some(move => {
+        const move = game.legalMoves.find(move => {
 
-            return move.row === row && move.col === col;
+            return (
+                move.row === row &&
+                move.col === col
+            );
 
         });
 
-        if (isLegalMove) {
+        if (move) {
 
-            square.classList.add("legal-move");
+            if (move.type === "move") {
+
+                square.classList.add("legal-move");
+
+            }
+
+            if (move.type === "capture") {
+
+                square.classList.add("legal-capture");
+
+            }
 
         }
+
+        // ==========================
+        // Отрисовка фигуры
+        // ==========================
 
         const piece = game.board[row][col];
 
         square.innerHTML = "";
 
         if (!piece) {
+
             return;
+
         }
 
         const pieceElement = document.createElement("div");
