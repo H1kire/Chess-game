@@ -1,0 +1,16 @@
+@media(max-width:1400px){
+
+    #app{
+
+        grid-template-columns:200px auto 200px;
+
+    }
+
+    #board{
+
+        width:640px;
+        height:640px;
+
+    }
+
+}

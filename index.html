@@ -1,10 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
+
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Chess</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/board.css">
+    <link rel="stylesheet" href="css/panels.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
 </head>
+
 <body>
-$END$
+
+<div id="app">
+
+    <aside id="left-panel">
+
+        <h2>Белые</h2>
+
+        <div class="panel-block">
+            <h3>Захваченные</h3>
+            <div id="white-captured"></div>
+        </div>
+
+        <div class="panel-block">
+            <h3>История</h3>
+            <div id="move-history"></div>
+        </div>
+
+    </aside>
+
+
+    <main id="board-container">
+
+        <div id="board"></div>
+
+    </main>
+
+
+    <aside id="right-panel">
+
+        <button id="new-game">
+            Новая игра
+        </button>
+
+        <button id="undo">
+            Отменить ход
+        </button>
+
+        <button id="flip-board">
+            Перевернуть
+        </button>
+
+        <button id="copy-fen">
+            Копировать FEN
+        </button>
+
+        <button id="load-fen">
+            Загрузить FEN
+        </button>
+
+    </aside>
+
+</div>
+
+<script type="module" src="js/app.js"></script>
+
 </body>
 </html>

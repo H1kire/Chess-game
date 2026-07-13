@@ -1,0 +1,27 @@
+aside{
+
+    padding:20px;
+
+    background:#252525;
+
+    overflow:auto;
+
+}
+
+.panel-block{
+
+    margin-top:25px;
+
+}
+
+button{
+
+    width:100%;
+
+    margin-bottom:12px;
+
+    padding:12px;
+
+    cursor:pointer;
+
+}
