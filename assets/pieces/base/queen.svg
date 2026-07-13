@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 64 64"
+        fill="currentColor">
+
+    <!-- Корона -->
+    <path d="
+        M18 22
+        L24 14
+        L32 22
+        L40 14
+        L46 22
+        L44 28
+        H20
+        Z"/>
+
+    <!-- Верх -->
+    <path d="
+        M22 28
+        C22 38 26 44 32 48
+        C38 44 42 38 42 28
+        Z"/>
+
+    <!-- Основание -->
+    <path d="
+        M24 48
+        H40
+        L46 54
+        H18
+        Z"/>
+
+    <rect
+            x="18"
+            y="54"
+            width="28"
+            height="4"
+            rx="2"/>
+
+</svg>

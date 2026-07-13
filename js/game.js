@@ -12,6 +12,12 @@ export const game = {
 
     capturedBlack: [],
 
-    flipped: false
+    flipped: false,
+
+    settings: {
+
+        pieceTheme: "base"
+
+    }
 
 };

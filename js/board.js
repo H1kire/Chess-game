@@ -1,8 +1,8 @@
-import { game } from "./game.js";
 import {
     createPiece,
-    getPieceImagePath
+    getPieceSvg
 } from "./pieces.js";
+import { game } from "./game.js";
 
 const boardElement = document.getElementById("board");
 
@@ -103,14 +103,13 @@ export function startNewGame() {
 
 }
 
-export function renderBoard() {
+export async function renderBoard() {
 
     const squares = document.querySelectorAll(".square");
 
     squares.forEach(square => {
 
         const row = Number(square.dataset.row);
-
         const col = Number(square.dataset.col);
 
         const piece = game.board[row][col];
@@ -118,22 +117,20 @@ export function renderBoard() {
         square.innerHTML = "";
 
         if (!piece) {
-
             return;
-
         }
 
-        const image = document.createElement("img");
+        const pieceElement = document.createElement("div");
 
-        image.className = "piece";
+        pieceElement.className = `piece ${piece.color}`;
 
-        image.draggable = false;
+        getPieceSvg(piece).then(svg => {
 
-        image.src = getPieceImagePath(piece);
+            pieceElement.innerHTML = svg;
 
-        image.alt = `${piece.color} ${piece.type}`;
+        });
 
-        square.appendChild(image);
+        square.appendChild(pieceElement);
 
     });
 

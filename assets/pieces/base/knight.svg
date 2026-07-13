@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 64 64"
+        fill="currentColor">
+
+    <!-- Голова и шея -->
+    <path d="
+        M20 48
+        L28 36
+        C30 32 31 28 29 24
+        C28 20 30 16 36 16
+        C41 16 45 19 45 24
+        C45 28 43 31 40 33
+        C37 35 35 37 35 41
+        L44 48
+        Z"/>
+
+    <!-- Основание -->
+    <rect
+            x="18"
+            y="48"
+            width="28"
+            height="8"
+            rx="2"/>
+
+</svg>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 64 64"
+        fill="currentColor">
+
+    <!-- Крест -->
+    <rect
+            x="30"
+            y="8"
+            width="4"
+            height="12"
+            rx="1"/>
+
+    <rect
+            x="26"
+            y="12"
+            width="12"
+            height="4"
+            rx="1"/>
+
+    <!-- Верх -->
+    <path d="
+        M24 20
+
+        C24 16 28 14 32 14
+
+        C36 14 40 16 40 20
+
+        C40 30 38 40 34 48
+
+        H30
+
+        C26 40 24 30 24 20
+
+        Z"/>
+
+    <!-- Основание -->
+    <path d="
+        M24 48
+        H40
+        L46 54
+        H18
+        Z"/>
+
+    <rect
+            x="18"
+            y="54"
+            width="28"
+            height="4"
+            rx="2"/>
+
+</svg>

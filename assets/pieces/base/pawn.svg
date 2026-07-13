@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 64 64"
+        fill="currentColor">
+
+    <!-- Голова -->
+    <circle
+            cx="32"
+            cy="18"
+            r="8"/>
+
+    <!-- Корпус -->
+    <path
+            d="
+            M24 29
+            C24 24 40 24 40 29
+
+            C40 36 37 40 35 43
+
+            L46 52
+
+            L18 52
+
+            L29 43
+
+            C27 40 24 36 24 29
+            Z"/>
+
+    <!-- Основание -->
+    <rect
+            x="18"
+            y="52"
+            width="28"
+            height="4"
+            rx="2"/>
+
+</svg>

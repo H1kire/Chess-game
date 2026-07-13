@@ -1,4 +1,4 @@
-const PIECE_FOLDER = "assets/pieces/base";
+import { game } from "./game.js";
 
 export function createPiece(type, color) {
 
@@ -10,14 +10,28 @@ export function createPiece(type, color) {
 
         color,
 
-        moved:false
+        moved: false
 
     };
 
 }
 
-export function getPieceImagePath(piece){
+const svgCache = new Map();
 
-    return `${PIECE_FOLDER}/${piece.color}-${piece.type}.svg`;
+export async function getPieceSvg(piece){
+
+    const path =
+        `./assets/pieces/${game.settings.pieceTheme}/${piece.type}.svg`;
+
+    if(svgCache.has(path))
+        return svgCache.get(path);
+
+    const response = await fetch(path);
+
+    const svg = await response.text();
+
+    svgCache.set(path, svg);
+
+    return svg;
 
 }
