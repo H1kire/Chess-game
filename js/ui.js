@@ -1,6 +1,7 @@
 import { game } from "./game.js";
 import { renderBoard } from "./board.js";
 import { getLegalMoves } from "./moves.js";
+import { isMoveLegal } from "./validate.js";
 
 export function selectSquare(row, col) {
 
@@ -115,7 +116,26 @@ export function selectSquare(row, col) {
 
     };
 
-    game.legalMoves = getLegalMoves(piece, row, col);
+    const moves = getLegalMoves(
+
+        piece,
+        row,
+        col
+
+    );
+
+    game.legalMoves = moves.filter(move => {
+
+        return isMoveLegal(
+
+            row,
+            col,
+            move.row,
+            move.col
+
+        );
+
+    });
 
     renderBoard();
 
