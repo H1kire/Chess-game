@@ -1,4 +1,6 @@
 import { game } from "./game.js";
+import { getSlidingMoves } from "./rays.js";
+
 
 // ==========================================
 // Регистрация генераторов ходов
@@ -133,9 +135,24 @@ function getPawnMoves(piece, row, col) {
 // Ладья
 // ==========================================
 
-function getRookMoves() {
+function getRookMoves(piece, row, col) {
 
-    return [];
+    const rookDirections = [
+
+        [-1, 0],
+        [1, 0],
+
+        [0, -1],
+        [0, 1]
+
+    ];
+
+    return getSlidingMoves(
+        piece,
+        row,
+        col,
+        rookDirections
+    );
 
 }
 
@@ -230,9 +247,26 @@ function getKnightMoves(piece, row, col) {
 // Слон
 // ==========================================
 
-function getBishopMoves() {
+function getBishopMoves(piece, row, col) {
 
-    return [];
+    const bishopDirections = [
+
+        [-1, -1],
+        [-1, 1],
+
+        [1, -1],
+        [1, 1]
+
+    ];
+
+    return getSlidingMoves(
+
+        piece,
+        row,
+        col,
+        bishopDirections
+
+    );
 
 }
 
@@ -240,9 +274,14 @@ function getBishopMoves() {
 // Ферзь
 // ==========================================
 
-function getQueenMoves() {
+function getQueenMoves(piece, row, col) {
 
-    return [];
+    return getSlidingMoves(
+        piece,
+        row,
+        col,
+        queenDirections
+    );
 
 }
 
