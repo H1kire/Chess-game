@@ -143,9 +143,86 @@ function getRookMoves() {
 // Конь
 // ==========================================
 
-function getKnightMoves() {
+function getKnightMoves(piece, row, col) {
 
-    return [];
+    const moves = [];
+
+    const offsets = [
+
+        [-2, -1],
+        [-2, 1],
+
+        [-1, -2],
+        [-1, 2],
+
+        [1, -2],
+        [1, 2],
+
+        [2, -1],
+        [2, 1]
+
+    ];
+
+    offsets.forEach(([rowOffset, colOffset]) => {
+
+        const targetRow = row + rowOffset;
+
+        const targetCol = col + colOffset;
+
+        // За пределами доски
+
+        if (
+
+            targetRow < 0 ||
+            targetRow > 7 ||
+            targetCol < 0 ||
+            targetCol > 7
+
+        ) {
+
+            return;
+
+        }
+
+        const targetPiece = game.board[targetRow][targetCol];
+
+        // Пустая клетка
+
+        if (targetPiece === null) {
+
+            moves.push({
+
+                row: targetRow,
+
+                col: targetCol,
+
+                type: "move"
+
+            });
+
+            return;
+
+        }
+
+        // Фигура противника
+
+        if (targetPiece.color !== piece.color) {
+
+            moves.push({
+
+                row: targetRow,
+
+                col: targetCol,
+
+                type: "capture"
+
+            });
+
+        }
+
+    });
+
+    return moves;
 
 }
 
