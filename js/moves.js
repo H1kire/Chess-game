@@ -40,6 +40,18 @@ export function getLegalMoves(piece, row, col) {
 
 }
 
+export function getAttackMoves(piece, row, col) {
+
+    if (piece.type === "pawn") {
+
+        return getPawnAttackMoves(piece, row, col);
+
+    }
+
+    return getLegalMoves(piece, row, col);
+
+}
+
 // ==========================================
 // Пешка
 // ==========================================
@@ -120,6 +132,44 @@ function getPawnMoves(piece, row, col) {
                 col: targetCol,
 
                 type: "capture"
+
+            });
+
+        }
+
+    });
+
+    return moves;
+
+}
+
+function getPawnAttackMoves(piece, row, col) {
+
+    const moves = [];
+
+    const direction = piece.color === "white"
+        ? -1
+        : 1;
+
+    [-1, 1].forEach(offset => {
+
+        const targetRow = row + direction;
+        const targetCol = col + offset;
+
+        if (
+
+            targetRow >= 0 &&
+            targetRow < 8 &&
+            targetCol >= 0 &&
+            targetCol < 8
+
+        ) {
+
+            moves.push({
+
+                row: targetRow,
+                col: targetCol,
+                type: "attack"
 
             });
 
