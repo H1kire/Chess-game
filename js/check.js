@@ -1,4 +1,5 @@
 import { game } from "./game.js";
+import { isSquareAttacked } from "./attacks.js";
 
 // ==========================================
 // Поиск короля
@@ -35,5 +36,33 @@ export function findKing(color) {
     }
 
     return null;
+
+}
+
+// ==========================================
+// Проверка шаха
+// ==========================================
+
+export function isKingInCheck(color) {
+
+    const king = findKing(color);
+
+    if (!king) {
+
+        return false;
+
+    }
+
+    const enemyColor = color === "white"
+        ? "black"
+        : "white";
+
+    return isSquareAttacked(
+
+        king.row,
+        king.col,
+        enemyColor
+
+    );
 
 }

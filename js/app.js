@@ -1,7 +1,7 @@
 import { game } from "./game.js";
 import { findKing } from "./check.js";
 import { isSquareAttacked } from "./attacks.js";
-
+import { isKingInCheck } from "./check.js";
 
 import {
 
@@ -21,5 +21,8 @@ window.addEventListener("DOMContentLoaded", () => {
     window.renderBoard = renderBoard;
     window.findKing = findKing;
     window.isSquareAttacked = isSquareAttacked;
+    window.isKingInCheck = isKingInCheck;
+
+
 
 });
