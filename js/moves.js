@@ -311,8 +311,79 @@ function getQueenMoves(piece, row, col) {
 // Король
 // ==========================================
 
-function getKingMoves() {
+function getKingMoves(piece, row, col) {
 
-    return [];
+    const moves = [];
+
+    const offsets = [
+
+        [-1, -1],
+        [-1, 0],
+        [-1, 1],
+
+        [0, -1],
+        [0, 1],
+
+        [1, -1],
+        [1, 0],
+        [1, 1]
+
+    ];
+
+    offsets.forEach(([rowOffset, colOffset]) => {
+
+        const targetRow = row + rowOffset;
+        const targetCol = col + colOffset;
+
+        // За пределами доски
+
+        if (
+
+            targetRow < 0 ||
+            targetRow > 7 ||
+            targetCol < 0 ||
+            targetCol > 7
+
+        ) {
+
+            return;
+
+        }
+
+        const targetPiece = game.board[targetRow][targetCol];
+
+        // Пустая клетка
+
+        if (targetPiece === null) {
+
+            moves.push({
+
+                row: targetRow,
+                col: targetCol,
+                type: "move"
+
+            });
+
+            return;
+
+        }
+
+        // Вражеская фигура
+
+        if (targetPiece.color !== piece.color) {
+
+            moves.push({
+
+                row: targetRow,
+                col: targetCol,
+                type: "capture"
+
+            });
+
+        }
+
+    });
+
+    return moves;
 
 }
