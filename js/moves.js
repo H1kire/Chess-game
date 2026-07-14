@@ -276,11 +276,33 @@ function getBishopMoves(piece, row, col) {
 
 function getQueenMoves(piece, row, col) {
 
+    const queenDirections = [
+
+        // Ладья
+
+        [-1, 0],
+        [1, 0],
+
+        [0, -1],
+        [0, 1],
+
+        // Слон
+
+        [-1, -1],
+        [-1, 1],
+
+        [1, -1],
+        [1, 1]
+
+    ];
+
     return getSlidingMoves(
+
         piece,
         row,
         col,
         queenDirections
+
     );
 
 }
