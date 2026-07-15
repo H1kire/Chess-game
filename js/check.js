@@ -128,3 +128,31 @@ export function hasLegalMoves(color) {
     return false;
 
 }
+// ==========================================
+// Мат
+// ==========================================
+
+export function isCheckmate(color) {
+
+    return (
+
+        isKingInCheck(color) &&
+        !hasLegalMoves(color)
+
+    );
+
+}
+// ==========================================
+// Пат
+// ==========================================
+
+export function isStalemate(color) {
+
+    return (
+
+        !isKingInCheck(color) &&
+        !hasLegalMoves(color)
+
+    );
+
+}
