@@ -57,6 +57,8 @@ export function selectSquare(row, col) {
 
             game.board[game.selected.row][game.selected.col] = null;
 
+            promotePawn(row, col);
+
             // ==========================================
             // Смена игрока
             // ==========================================

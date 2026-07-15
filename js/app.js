@@ -10,7 +10,7 @@ import {
     isStalemate
 
 } from "./check.js";
-
+import { promotePawn } from "./promotion.js";
 
 
 
@@ -37,7 +37,7 @@ window.addEventListener("DOMContentLoaded", () => {
     window.hasLegalMoves = hasLegalMoves;
     window.isCheckmate = isCheckmate;
     window.isStalemate = isStalemate;
-
+    window.promotePawn = promotePawn;
 
 
 
