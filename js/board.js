@@ -102,6 +102,8 @@ export function startNewGame() {
 
     game.capturedBlack = [];
 
+    game.lastMove = null;
+
     createEmptyBoard();
 
     setupPieces();

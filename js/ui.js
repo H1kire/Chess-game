@@ -57,6 +57,22 @@ export function selectSquare(row, col) {
 
             game.board[game.selected.row][game.selected.col] = null;
 
+            selectedPiece.moved = true;
+
+            game.lastMove = {
+
+                piece: selectedPiece,
+
+                fromRow: game.selected.row,
+
+                fromCol: game.selected.col,
+
+                toRow: row,
+
+                toCol: col
+
+            };
+
             promotePawn(row, col);
 
             // ==========================================

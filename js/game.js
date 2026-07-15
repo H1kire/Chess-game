@@ -8,6 +8,8 @@ export const game = {
 
     legalMoves: [],
 
+    lastMove: null,
+
     capturedWhite: [],
 
     capturedBlack: [],
