@@ -3,6 +3,9 @@ import { findKing } from "./check.js";
 import { isSquareAttacked } from "./attacks.js";
 import { isKingInCheck } from "./check.js";
 import { isMoveLegal } from "./validate.js";
+import { hasLegalMoves } from "./check.js";
+
+
 
 
 
@@ -26,6 +29,11 @@ window.addEventListener("DOMContentLoaded", () => {
     window.isSquareAttacked = isSquareAttacked;
     window.isKingInCheck = isKingInCheck;
     window.isMoveLegal = isMoveLegal;
+    window.hasLegalMoves = hasLegalMoves;
+
+
+
+
 
 
 
