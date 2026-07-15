@@ -48,6 +48,40 @@ export function selectSquare(row, col) {
                 }
 
             }
+            // ==========================================
+            // Взятие на проходе
+            // ==========================================
+
+            if (move.type === "en-passant") {
+
+                const capturedPiece =
+                    game.board[
+                        game.selected.row
+                        ][
+                        col
+                        ];
+
+                if (capturedPiece) {
+
+                    if (capturedPiece.color === "white") {
+
+                        game.capturedWhite.push(capturedPiece);
+
+                    } else {
+
+                        game.capturedBlack.push(capturedPiece);
+
+                    }
+
+                    game.board[
+                        game.selected.row
+                        ][
+                        col
+                        ] = null;
+
+                }
+
+            }
 
             // ==========================================
             // Перемещение

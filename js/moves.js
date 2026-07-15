@@ -139,6 +139,93 @@ function getPawnMoves(piece, row, col) {
 
     });
 
+// ==========================================
+// Взятие на проходе
+// ==========================================
+
+    const lastMove = game.lastMove;
+
+    if (!lastMove) {
+
+        return moves;
+
+    }
+
+    const isEnemyPawn =
+
+        lastMove.piece.type === "pawn" &&
+        lastMove.piece.color !== piece.color;
+
+    if (!isEnemyPawn) {
+
+        return moves;
+
+    }
+
+    const movedTwoSquares =
+
+        Math.abs(
+
+            lastMove.fromRow -
+            lastMove.toRow
+
+        ) === 2;
+
+    if (!movedTwoSquares) {
+
+        return moves;
+
+    }
+
+// Белая пешка должна быть на 5-й горизонтали,
+// чёрная — на 4-й.
+
+    const correctRow =
+
+        piece.color === "white"
+            ? row === 3
+            : row === 4;
+
+    if (!correctRow) {
+
+        return moves;
+
+    }
+
+// Пешки должны стоять рядом
+
+    const adjacentPawn =
+
+        lastMove.toRow === row &&
+        Math.abs(lastMove.toCol - col) === 1;
+
+    if (!adjacentPawn) {
+
+        return moves;
+
+    }
+
+// Клетка назначения должна быть пустой
+
+    const targetRow = row + direction;
+    const targetCol = lastMove.toCol;
+
+    if (game.board[targetRow][targetCol] !== null) {
+
+        return moves;
+
+    }
+
+    moves.push({
+
+        row: targetRow,
+
+        col: targetCol,
+
+        type: "en-passant"
+
+    });
+    
     return moves;
 
 }

@@ -164,7 +164,10 @@ export async function renderBoard() {
 
             }
 
-            if (move.type === "capture") {
+            if (
+                move.type === "capture" ||
+                move.type === "en-passant"
+            ) {
 
                 square.classList.add("legal-capture");
 

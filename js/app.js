@@ -11,7 +11,7 @@ import {
 
 } from "./check.js";
 import { promotePawn } from "./promotion.js";
-
+import { debugBoard } from "./debug.js";
 
 
 import {
@@ -38,7 +38,7 @@ window.addEventListener("DOMContentLoaded", () => {
     window.isCheckmate = isCheckmate;
     window.isStalemate = isStalemate;
     window.promotePawn = promotePawn;
-
+    window.debugBoard = debugBoard;
 
 
 
