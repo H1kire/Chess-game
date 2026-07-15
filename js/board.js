@@ -155,6 +155,23 @@ export async function renderBoard() {
             );
 
         });
+        // ==========================
+        // Подсветка пешки для en-passant
+        // ==========================
+
+        game.legalMoves.forEach(move => {
+
+            if (
+                move.type === "en-passant" &&
+                move.captureRow === row &&
+                move.captureCol === col
+            ) {
+
+                square.classList.add("legal-capture");
+
+            }
+
+        });
 
         if (move) {
 
@@ -170,6 +187,20 @@ export async function renderBoard() {
             ) {
 
                 square.classList.add("legal-capture");
+
+            }
+            if (move.type === "en-passant") {
+
+                const captureSquare =
+                    document.querySelector(
+                        `[data-row="${move.captureRow}"][data-col="${move.captureCol}"]`
+                    );
+
+                if (captureSquare) {
+
+                    captureSquare.classList.add("legal-capture");
+
+                }
 
             }
 

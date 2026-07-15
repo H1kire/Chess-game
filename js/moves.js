@@ -218,14 +218,18 @@ function getPawnMoves(piece, row, col) {
 
     moves.push({
 
-        row: targetRow,
+        row: row + direction,
 
-        col: targetCol,
+        col: lastMove.toCol,
 
-        type: "en-passant"
+        type: "en-passant",
+
+        captureRow: row,
+
+        captureCol: lastMove.toCol
 
     });
-    
+
     return moves;
 
 }
