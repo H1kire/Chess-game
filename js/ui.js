@@ -87,6 +87,38 @@ export function selectSquare(row, col) {
             // Перемещение
             // ==========================================
 
+            // ==========================================
+            // Короткая рокировка
+            // ==========================================
+
+            if (move.type === "castle-short") {
+
+                const rook = game.board[row][7];
+
+                game.board[row][5] = rook;
+
+                game.board[row][7] = null;
+
+                rook.moved = true;
+
+            }
+
+            // ==========================================
+            // Длинная рокировка
+            // ==========================================
+
+            if (move.type === "castle-long") {
+
+                const rook = game.board[row][0];
+
+                game.board[row][3] = rook;
+
+                game.board[row][0] = null;
+
+                rook.moved = true;
+
+            }
+
             game.board[row][col] = selectedPiece;
 
             game.board[game.selected.row][game.selected.col] = null;
@@ -106,6 +138,8 @@ export function selectSquare(row, col) {
                 toCol: col
 
             };
+
+
 
             promotePawn(row, col);
 

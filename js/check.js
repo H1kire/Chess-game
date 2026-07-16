@@ -56,15 +56,11 @@ export function isKingInCheck(color) {
 
     }
 
-    const enemyColor = color === "white"
-        ? "black"
-        : "white";
-
     return isSquareAttacked(
 
         king.row,
         king.col,
-        enemyColor
+        color
 
     );
 

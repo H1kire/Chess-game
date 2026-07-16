@@ -5,7 +5,13 @@ import { getAttackMoves } from "./moves.js";
 // Проверка атаки клетки
 // ==========================================
 
-export function isSquareAttacked(row, col, byColor) {
+export function isSquareAttacked(row, col, defenderColor) {
+
+    const attackerColor =
+
+        defenderColor === "white"
+            ? "black"
+            : "white";
 
     for (let currentRow = 0; currentRow < 8; currentRow++) {
 
@@ -19,7 +25,7 @@ export function isSquareAttacked(row, col, byColor) {
 
             }
 
-            if (piece.color !== byColor) {
+            if (piece.color !== attackerColor) {
 
                 continue;
 

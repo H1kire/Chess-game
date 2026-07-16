@@ -1,6 +1,7 @@
 import { game } from "./game.js";
 import { getSlidingMoves } from "./rays.js";
-
+import { isSquareAttacked } from "./attacks.js";
+import { isKingInCheck } from "./check.js";
 
 // ==========================================
 // Регистрация генераторов ходов
@@ -47,7 +48,11 @@ export function getAttackMoves(piece, row, col) {
         return getPawnAttackMoves(piece, row, col);
 
     }
+    if (piece.type === "king") {
 
+        return getKingAttackMoves(row, col);
+
+    }
     return getLegalMoves(piece, row, col);
 
 }
@@ -525,6 +530,127 @@ function getKingMoves(piece, row, col) {
 
     });
 
+    // ==========================================
+    // Короткая рокировка
+    // ==========================================
+
+    if (!piece.moved) {
+
+        const rook = game.board[row][7];
+
+        if (
+
+            rook &&
+            rook.type === "rook" &&
+            rook.color === piece.color &&
+            !rook.moved &&
+
+            game.board[row][5] === null &&
+            game.board[row][6] === null &&
+
+            !isKingInCheck(piece.color) &&
+            !isSquareAttacked(row, 5, piece.color) &&
+            !isSquareAttacked(row, 6, piece.color)
+
+        ) {
+
+            moves.push({
+
+                row,
+                col: 6,
+                type: "castle-short"
+
+            });
+
+        }
+
+    }
+
+    // ==========================================
+    // Длинная рокировка
+    // ==========================================
+
+    if (!piece.moved) {
+
+        const rook = game.board[row][0];
+
+        if (
+
+            rook &&
+            rook.type === "rook" &&
+            rook.color === piece.color &&
+            !rook.moved &&
+
+            game.board[row][1] === null &&
+            game.board[row][2] === null &&
+            game.board[row][3] === null &&
+
+            !isKingInCheck(piece.color) &&
+            !isSquareAttacked(row, 3, piece.color) &&
+            !isSquareAttacked(row, 2, piece.color)
+
+        ) {
+
+            moves.push({
+
+                row,
+                col: 2,
+                type: "castle-long"
+
+            });
+
+        }
+
+    }
+
+    return moves;
+
+
+}
+
+function getKingAttackMoves(row, col) {
+
+    const moves = [];
+
+    const offsets = [
+
+        [-1, -1],
+        [-1, 0],
+        [-1, 1],
+
+        [0, -1],
+        [0, 1],
+
+        [1, -1],
+        [1, 0],
+        [1, 1]
+
+    ];
+
+    offsets.forEach(([dr, dc]) => {
+
+        const r = row + dr;
+        const c = col + dc;
+
+        if (
+            r >= 0 && r < 8 &&
+            c >= 0 && c < 8
+        ) {
+
+            moves.push({
+
+                row: r,
+                col: c,
+                type: "attack"
+
+            });
+
+        }
+
+    });
+
     return moves;
 
 }
+
+

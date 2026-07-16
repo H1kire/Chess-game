@@ -175,7 +175,13 @@ export async function renderBoard() {
 
         if (move) {
 
-            if (move.type === "move") {
+            if (
+
+                move.type === "move" ||
+                move.type === "castle-short" ||
+                move.type === "castle-long"
+
+            ) {
 
                 square.classList.add("legal-move");
 
