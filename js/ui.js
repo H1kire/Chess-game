@@ -3,7 +3,7 @@ import { renderBoard } from "./board.js";
 import { getLegalMoves } from "./moves.js";
 import { isMoveLegal } from "./validate.js";
 
-export function selectSquare(row, col) {
+export async function selectSquare(row, col) {
 
     const piece = game.board[row][col];
 
@@ -141,7 +141,20 @@ export function selectSquare(row, col) {
 
 
 
-            promotePawn(row, col);
+            const needPromotion =
+                promotePawn(row, col);
+
+            if (needPromotion) {
+
+                const pieceType =
+                    await showPromotion(
+                        selectedPiece.color
+                    );
+
+                selectedPiece.type =
+                    pieceType;
+
+            }
 
             // ==========================================
             // Смена игрока

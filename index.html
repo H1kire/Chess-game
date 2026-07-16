@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/board.css">
+    <link rel="stylesheet" href="css/promotion.css">
     <link rel="stylesheet" href="css/panels.css">
     <link rel="stylesheet" href="css/responsive.css">
 
@@ -39,6 +40,32 @@
     <main id="board-container">
 
         <div id="board"></div>
+
+        <!-- ==========================================
+        Promotion Modal
+        ========================================== -->
+
+        <div id="promotion-modal" class="promotion-hidden">
+
+            <div class="promotion-window">
+
+                <h2>Выберите замену</h2>
+
+                <div id="promotion-options">
+
+                    <button data-piece="queen">Ферзь</button>
+
+                    <button data-piece="rook">Ладья</button>
+
+                    <button data-piece="bishop">Слон</button>
+
+                    <button data-piece="knight">Конь</button>
+
+                </div>
+
+            </div>
+
+        </div>
 
     </main>
 
