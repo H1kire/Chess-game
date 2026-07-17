@@ -10,6 +10,15 @@ import {
 
 } from "./history.js";
 import { renderCapturedPieces } from "./captured.js";
+import {
+    startTimer,
+    stopTimer,
+    renderTimers
+} from "./timers.js";
+
+
+
+
 
 
 export async function selectSquare(row, col) {
@@ -195,10 +204,16 @@ export async function selectSquare(row, col) {
             // Смена игрока
             // ==========================================
 
+            stopTimer();
+
             game.currentPlayer =
                 game.currentPlayer === "white"
                     ? "black"
                     : "white";
+
+            renderTimers();
+
+            startTimer();
 
             game.selected = null;
 

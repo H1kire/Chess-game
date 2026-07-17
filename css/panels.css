@@ -67,4 +67,65 @@ button{
 
 }
 
+/* ==========================================
+   Timers
+========================================== */
 
+.timer {
+
+    width: 90px;
+
+    padding: 10px;
+
+    margin: 10px auto;
+
+    text-align: center;
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    border-radius: 8px;
+
+    background: #222;
+
+    color: white;
+
+    border: 3px solid transparent;
+
+    transition:
+            border-color 0.3s ease,
+            box-shadow 0.3s ease,
+            transform 0.3s ease;
+
+}
+
+
+/* Активный таймер */
+
+.timer.active {
+
+    border-color: lime;
+
+    box-shadow:
+            0 0 10px lime;
+
+}
+
+
+/* Таймер белых */
+
+.white-timer {
+
+    color: white;
+
+}
+
+
+/* Таймер черных */
+
+.black-timer {
+
+    color: white;
+
+}

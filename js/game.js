@@ -4,6 +4,14 @@ export const defaultGameState = {
 
     currentPlayer: "white",
 
+    timers: {
+
+        white: 600,
+
+        black: 600
+
+    },
+
     selected: null,
 
     legalMoves: [],
