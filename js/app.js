@@ -13,7 +13,7 @@ import {
 import { promotePawn } from "./promotion.js";
 import { debugBoard } from "./debug.js";
 import { showPromotion } from "./promotion.js";
-
+import { resetGame } from "./newGame.js";
 
 
 import {
@@ -30,6 +30,15 @@ window.addEventListener("DOMContentLoaded", () => {
 
     startNewGame();
 
+    const newGameButton =
+        document.getElementById("new-game");
+
+    newGameButton.addEventListener("click", () => {
+
+        resetGame();
+
+    });
+
     window.game = game;
     window.renderBoard = renderBoard;
     window.findKing = findKing;
@@ -43,7 +52,10 @@ window.addEventListener("DOMContentLoaded", () => {
     window.debugBoard = debugBoard;
     window.showPromotion = showPromotion;
 
-
-
-
 });
+
+
+
+
+
+

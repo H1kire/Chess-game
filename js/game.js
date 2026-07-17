@@ -1,4 +1,4 @@
-export const game = {
+export const defaultGameState = {
 
     board: [],
 
@@ -23,3 +23,5 @@ export const game = {
     }
 
 };
+
+export const game = structuredClone(defaultGameState);

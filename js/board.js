@@ -96,7 +96,9 @@ export function startNewGame() {
 
     game.selected = null;
 
-    game.currentPlayer  = "white";
+    game.currentPlayer = "white";
+
+    game.flipped = false;
 
     game.capturedWhite = [];
 
