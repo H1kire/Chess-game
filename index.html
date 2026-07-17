@@ -25,13 +25,19 @@
         <h2>Белые</h2>
 
         <div class="panel-block">
+
             <h3>Захваченные</h3>
+
             <div id="white-captured"></div>
+
         </div>
 
         <div class="panel-block">
+
             <h3>История</h3>
+
             <div id="move-history"></div>
+
         </div>
 
     </aside>
@@ -39,27 +45,31 @@
 
     <main id="board-container">
 
-        <div id="board"></div>
+        <div id="board-wrapper">
 
-        <!-- ==========================================
-        Promotion Modal
-        ========================================== -->
+            <div id="board"></div>
 
-        <div id="promotion-modal" class="promotion-hidden">
+            <!-- ==========================================
+            Promotion Modal
+            ========================================== -->
 
-            <div class="promotion-window">
+            <div id="promotion-modal" class="promotion-hidden">
 
-                <h2>Выберите замену</h2>
+                <div class="promotion-window">
 
-                <div id="promotion-options">
+                    <h2>Выберите замену</h2>
 
-                    <button data-piece="queen">Ферзь</button>
+                    <div id="promotion-options">
 
-                    <button data-piece="rook">Ладья</button>
+                        <button data-piece="queen">Ферзь</button>
 
-                    <button data-piece="bishop">Слон</button>
+                        <button data-piece="rook">Ладья</button>
 
-                    <button data-piece="knight">Конь</button>
+                        <button data-piece="bishop">Слон</button>
+
+                        <button data-piece="knight">Конь</button>
+
+                    </div>
 
                 </div>
 
@@ -99,4 +109,5 @@
 <script type="module" src="js/app.js"></script>
 
 </body>
+
 </html>

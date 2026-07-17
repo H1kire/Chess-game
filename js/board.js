@@ -12,10 +12,103 @@ import { renderCapturedPieces } from "./captured.js";
 
 
 const boardElement = document.getElementById("board");
+const boardWrapper = document.getElementById("board-wrapper");
+
+function createCoordinates() {
+
+    const oldCoordinates = boardWrapper.querySelectorAll(
+
+        "#files-top, #files-bottom, #ranks-left, #ranks-right"
+
+    );
+
+    oldCoordinates.forEach(element => element.remove());
+
+    const filesTop =
+        document.createElement("div");
+
+    filesTop.id = "files-top";
+
+    const filesBottom =
+        document.createElement("div");
+
+    filesBottom.id = "files-bottom";
+
+    const ranksLeft =
+        document.createElement("div");
+
+    ranksLeft.id = "ranks-left";
+
+    const ranksRight =
+        document.createElement("div");
+
+    ranksRight.id = "ranks-right";
+
+    const files = [
+
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "h"
+
+    ];
+
+    for (const file of files) {
+
+        const top =
+            document.createElement("div");
+
+        top.textContent = file;
+
+        filesTop.appendChild(top);
+
+        const bottom =
+            document.createElement("div");
+
+        bottom.textContent = file;
+
+        filesBottom.appendChild(bottom);
+
+    }
+
+    for (let rank = 8; rank >= 1; rank--) {
+
+        const left =
+            document.createElement("div");
+
+        left.textContent = rank;
+
+        ranksLeft.appendChild(left);
+
+        const right =
+            document.createElement("div");
+
+        right.textContent = rank;
+
+        ranksRight.appendChild(right);
+
+    }
+
+    boardWrapper.append(
+
+        filesTop,
+        filesBottom,
+        ranksLeft,
+        ranksRight
+
+    );
+
+}
 
 export function createBoard() {
 
     boardElement.innerHTML = "";
+
+    createCoordinates();
 
     for (let row = 0; row < 8; row++) {
 
