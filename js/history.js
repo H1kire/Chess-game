@@ -27,6 +27,8 @@ export function saveGameState() {
 
             lastMove: game.lastMove,
 
+            lastMoveHighlight: game.lastMoveHighlight,
+
             capturedWhite: game.capturedWhite,
 
             capturedBlack: game.capturedBlack,
@@ -64,6 +66,8 @@ export function restorePreviousState() {
     game.legalMoves = previousState.legalMoves;
 
     game.lastMove = previousState.lastMove;
+
+    game.lastMoveHighlight = previousState.lastMoveHighlight;
 
     game.capturedWhite = previousState.capturedWhite;
 

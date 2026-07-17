@@ -149,7 +149,17 @@ export async function selectSquare(row, col) {
                 toCol: col
 
             };
+            game.lastMoveHighlight = {
 
+                fromRow: game.selected.row,
+
+                fromCol: game.selected.col,
+
+                toRow: row,
+
+                toCol: col
+
+            };
 
 
             const needPromotion =

@@ -10,6 +10,8 @@ export const defaultGameState = {
 
     lastMove: null,
 
+    lastMoveHighlight: null,
+
     capturedWhite: [],
 
     capturedBlack: [],

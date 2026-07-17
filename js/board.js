@@ -233,6 +233,7 @@ export async function renderBoard() {
         square.classList.remove("selected");
         square.classList.remove("legal-move");
         square.classList.remove("legal-capture");
+        square.classList.remove("last-move");
 
         // ==========================
         // Выбранная фигура
@@ -247,7 +248,39 @@ export async function renderBoard() {
             square.classList.add("selected");
 
         }
+        // ==========================
+        // Последний ход
+        // ==========================
 
+        if (
+
+            game.lastMoveHighlight &&
+
+            (
+
+                (
+
+                    game.lastMoveHighlight.fromRow === row &&
+                    game.lastMoveHighlight.fromCol === col
+
+                )
+
+                ||
+
+                (
+
+                    game.lastMoveHighlight.toRow === row &&
+                    game.lastMoveHighlight.toCol === col
+
+                )
+
+            )
+
+        ) {
+
+            square.classList.add("last-move");
+
+        }
         // ==========================
         // Возможные ходы
         // ==========================
