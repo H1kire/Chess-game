@@ -14,6 +14,10 @@ export const defaultGameState = {
 
     capturedBlack: [],
 
+    history: [],
+
+    moveHistory: [],
+
     flipped: false,
 
     settings: {

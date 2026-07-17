@@ -4,6 +4,11 @@ import {
 } from "./pieces.js";
 import { game } from "./game.js";
 import { selectSquare } from "./ui.js";
+import { renderMoveHistory } from "./history.js";
+import { renderCapturedPieces } from "./captured.js";
+
+
+
 
 
 const boardElement = document.getElementById("board");
@@ -62,7 +67,6 @@ function createEmptyBoard() {
 
 }
 
-
 function setupPieces() {
 
     const order = [
@@ -106,11 +110,17 @@ export function startNewGame() {
 
     game.lastMove = null;
 
+    game.moveHistory = [];
+
     createEmptyBoard();
 
     setupPieces();
 
     renderBoard();
+
+    renderMoveHistory();
+
+    renderCapturedPieces();
 
 }
 

@@ -2,6 +2,15 @@ import { game } from "./game.js";
 import { renderBoard } from "./board.js";
 import { getLegalMoves } from "./moves.js";
 import { isMoveLegal } from "./validate.js";
+import { saveGameState } from "./history.js";
+import {
+
+    addMoveToHistory,
+    createMoveText
+
+} from "./history.js";
+import { renderCapturedPieces } from "./captured.js";
+
 
 export async function selectSquare(row, col) {
 
@@ -21,6 +30,8 @@ export async function selectSquare(row, col) {
         });
 
         if (move) {
+
+            saveGameState();
 
             const selectedPiece =
                 game.board[game.selected.row][game.selected.col];
@@ -156,6 +167,20 @@ export async function selectSquare(row, col) {
 
             }
 
+            const moveText = createMoveText(
+
+                selectedPiece,
+
+                game.lastMove.fromRow,
+                game.lastMove.fromCol,
+
+                game.lastMove.toRow,
+                game.lastMove.toCol
+
+            );
+
+            addMoveToHistory(moveText);
+
             // ==========================================
             // Смена игрока
             // ==========================================
@@ -170,6 +195,8 @@ export async function selectSquare(row, col) {
             game.legalMoves = [];
 
             renderBoard();
+
+            renderCapturedPieces();
 
             return;
 
@@ -239,3 +266,11 @@ export async function selectSquare(row, col) {
     renderBoard();
 
 }
+
+
+
+
+
+
+
+

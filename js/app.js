@@ -14,8 +14,8 @@ import { promotePawn } from "./promotion.js";
 import { debugBoard } from "./debug.js";
 import { showPromotion } from "./promotion.js";
 import { resetGame } from "./newGame.js";
-
-
+import { undoMove } from "./history.js";
+import { renderCapturedPieces } from "./captured.js";
 import {
 
     createBoard,
@@ -23,6 +23,10 @@ import {
     renderBoard
 
 } from "./board.js";
+
+
+
+
 
 window.addEventListener("DOMContentLoaded", () => {
 
@@ -38,6 +42,15 @@ window.addEventListener("DOMContentLoaded", () => {
         resetGame();
 
     });
+    const undoButton =
+        document.getElementById("undo");
+
+    undoButton.addEventListener("click", () => {
+
+        undoMove();
+
+    });
+
 
     window.game = game;
     window.renderBoard = renderBoard;
@@ -51,6 +64,10 @@ window.addEventListener("DOMContentLoaded", () => {
     window.promotePawn = promotePawn;
     window.debugBoard = debugBoard;
     window.showPromotion = showPromotion;
+    window.renderCapturedPieces = renderCapturedPieces;
+
+
+
 
 });
 

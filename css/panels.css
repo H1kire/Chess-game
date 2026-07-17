@@ -25,3 +25,46 @@ button{
     cursor:pointer;
 
 }
+/* ==========================================
+   Captured Pieces
+========================================== */
+
+#white-captured {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    padding: 6px;
+
+}
+
+.captured-piece {
+
+    width: 42px;
+
+    height: 42px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background: #f2f2f2;
+
+    border-radius: 6px;
+
+}
+
+.captured-piece svg {
+
+    width: 28px;
+
+    height: 28px;
+
+}
+
+
