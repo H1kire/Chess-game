@@ -15,7 +15,7 @@ import {
     stopTimer,
     renderTimers
 } from "./timers.js";
-
+import { renderGameStatus } from "./status.js";
 
 
 
@@ -24,6 +24,16 @@ import {
 export async function selectSquare(row, col) {
 
     const piece = game.board[row][col];
+
+    // ==========================================
+    // Игра окончена
+    // ==========================================
+
+    if (game.gameOver) {
+
+        return;
+
+    }
 
     // ==========================================
     // Есть выбранная фигура
@@ -211,6 +221,8 @@ export async function selectSquare(row, col) {
                     ? "black"
                     : "white";
 
+            renderGameStatus();
+
             renderTimers();
 
             startTimer();
@@ -287,6 +299,8 @@ export async function selectSquare(row, col) {
         );
 
     });
+
+
 
     renderBoard();
 

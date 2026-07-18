@@ -6,9 +6,9 @@ import { game } from "./game.js";
 import { selectSquare } from "./ui.js";
 import { renderMoveHistory } from "./history.js";
 import { renderCapturedPieces } from "./captured.js";
-
-
-
+import { renderGameStatus } from "./status.js";
+import { hideGameOver } from "./gameOver.js";
+import { renderTimers } from "./timers.js";
 
 
 const boardElement = document.getElementById("board");
@@ -191,9 +191,13 @@ function setupPieces() {
 
 export function startNewGame() {
 
+    hideGameOver();
+
     game.selected = null;
 
     game.currentPlayer = "white";
+
+    game.gameOver = false;
 
     game.flipped = false;
 
@@ -205,11 +209,23 @@ export function startNewGame() {
 
     game.moveHistory = [];
 
+    game.timers = {
+
+        white: 600,
+
+        black: 600
+
+    };
+
     createEmptyBoard();
 
     setupPieces();
 
     renderBoard();
+
+    renderTimers();
+
+    renderGameStatus();
 
     renderMoveHistory();
 

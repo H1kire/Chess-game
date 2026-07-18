@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/board.css">
     <link rel="stylesheet" href="css/promotion.css">
+    <link rel="stylesheet" href="css/gameover.css">
     <link rel="stylesheet" href="css/panels.css">
     <link rel="stylesheet" href="css/responsive.css">
 
@@ -100,14 +101,60 @@
                         <button data-piece="knight">
                             Конь
                         </button>
+
                     </div>
+
                 </div>
+
+            </div>
+
+
+            <!-- ==========================================
+            Game Over Modal
+            ========================================== -->
+
+            <div id="game-over-modal" class="game-over-hidden">
+
+                <div class="game-over-window">
+
+                    <h2 id="game-over-title">
+
+                        Игра окончена
+
+                    </h2>
+
+                    <p id="game-over-message">
+
+                        Победили белые
+
+                    </p>
+
+                    <button id="game-over-button">
+
+                        Новая игра
+
+                    </button>
+
+                </div>
+
             </div>
         </div>
     </main>
 
 
     <aside id="right-panel">
+
+        <div class="panel-block">
+
+            <h3>Статус</h3>
+
+            <div id="game-status">
+
+                Ход: Белые
+
+            </div>
+
+        </div>
 
         <button id="new-game">
             Новая игра

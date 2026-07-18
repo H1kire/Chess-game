@@ -28,6 +28,8 @@ export const defaultGameState = {
 
     moveHistory: [],
 
+    gameOver: false,
+
     flipped: false,
 
     settings: {
