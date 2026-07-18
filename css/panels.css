@@ -1,3 +1,8 @@
+/* ==========================================
+   Side Panels
+   Левая и правая панели
+========================================== */
+
 aside{
 
     padding:20px;
@@ -8,11 +13,21 @@ aside{
 
 }
 
+
+/* ==========================================
+   Panel Blocks
+========================================== */
+
 .panel-block{
 
     margin-top:25px;
 
 }
+
+
+/* ==========================================
+   Buttons
+========================================== */
 
 button{
 
@@ -25,107 +40,95 @@ button{
     cursor:pointer;
 
 }
+
+
 /* ==========================================
    Captured Pieces
 ========================================== */
 
-#white-captured {
+#white-captured{
 
-    display: flex;
+    display:flex;
 
-    flex-wrap: wrap;
+    flex-wrap:wrap;
 
-    gap: 6px;
+    gap:6px;
 
-    padding: 6px;
-
-}
-
-.captured-piece {
-
-    width: 42px;
-
-    height: 42px;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    background: #f2f2f2;
-
-    border-radius: 6px;
+    padding:6px;
 
 }
 
-.captured-piece svg {
 
-    width: 28px;
+.captured-piece{
 
-    height: 28px;
+    width:42px;
+
+    height:42px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#f2f2f2;
+
+    border-radius:6px;
 
 }
+
+
+.captured-piece svg{
+
+    width:28px;
+
+    height:28px;
+
+}
+
 
 /* ==========================================
-   Timers
+   Chess Timers
+   Внешний вид шахматных часов
 ========================================== */
 
-.timer {
+.timer{
 
-    width: 90px;
+    width:80px;
 
-    padding: 10px;
+    padding:10px;
 
-    margin: 10px auto;
+    text-align:center;
 
-    text-align: center;
+    font-size:18px;
 
-    font-size: 28px;
+    font-weight:bold;
 
-    font-weight: bold;
+    color:white;
 
-    border-radius: 8px;
+    background:#303030;
 
-    background: #222;
+    border:2px solid #505050;
 
-    color: white;
-
-    border: 3px solid transparent;
+    border-radius:8px;
 
     transition:
-            border-color 0.3s ease,
-            box-shadow 0.3s ease,
-            transform 0.3s ease;
+            box-shadow .25s,
+            border-color .25s;
 
 }
 
 
-/* Активный таймер */
+/* ==========================================
+   Active Timer
+   Сейчас идет ход этого игрока
+========================================== */
 
-.timer.active {
+.timer.active{
 
-    border-color: lime;
+    border-color:lime;
 
     box-shadow:
             0 0 10px lime;
-
-}
-
-
-/* Таймер белых */
-
-.white-timer {
-
-    color: white;
-
-}
-
-
-/* Таймер черных */
-
-.black-timer {
-
-    color: white;
 
 }

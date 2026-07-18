@@ -46,63 +46,17 @@
 
     <main id="board-container">
 
-
-        <div id="board-wrapper">
-
-
-            <!-- Таймер черных -->
-
-            <div id="black-timer" class="timer black-timer active">
-
-                10:00
-
-            </div>
-
-
-            <!-- Доска -->
-
-            <div id="board"></div>
-
-
-            <!-- Таймер белых -->
-
-            <div id="white-timer" class="timer white-timer">
-
-                10:00
-
-            </div>
-
-
+        <div id="board-layout">
 
             <!-- ==========================================
-            Promotion Modal
+            White Timer
             ========================================== -->
 
-            <div id="promotion-modal" class="promotion-hidden">
+            <div id="left-side">
 
-                <div class="promotion-window">
+                <div id="white-timer" class="timer white-timer">
 
-                    <h2>Выберите замену</h2>
-
-                    <div id="promotion-options">
-
-                        <button data-piece="queen">
-                            Ферзь
-                        </button>
-
-                        <button data-piece="rook">
-                            Ладья
-                        </button>
-
-                        <button data-piece="bishop">
-                            Слон
-                        </button>
-
-                        <button data-piece="knight">
-                            Конь
-                        </button>
-
-                    </div>
+                    10:00
 
                 </div>
 
@@ -110,35 +64,90 @@
 
 
             <!-- ==========================================
-            Game Over Modal
+            Board
             ========================================== -->
 
-            <div id="game-over-modal" class="game-over-hidden">
+            <div id="board-wrapper">
 
-                <div class="game-over-window">
+                <div id="board"></div>
 
-                    <h2 id="game-over-title">
+            </div>
 
-                        Игра окончена
 
-                    </h2>
+            <!-- ==========================================
+            Black Timer
+            ========================================== -->
 
-                    <p id="game-over-message">
+            <div id="right-side">
 
-                        Победили белые
+                <div id="black-timer" class="timer black-timer active">
 
-                    </p>
-
-                    <button id="game-over-button">
-
-                        Новая игра
-
-                    </button>
+                    10:00
 
                 </div>
 
             </div>
+
         </div>
+
+
+        <!-- ==========================================
+        Promotion Modal
+        ========================================== -->
+
+        <div id="promotion-modal" class="promotion-hidden">
+
+            <div class="promotion-window">
+
+                <h2>Выберите замену</h2>
+
+                <div id="promotion-options">
+
+                    <button data-piece="queen">Ферзь</button>
+
+                    <button data-piece="rook">Ладья</button>
+
+                    <button data-piece="bishop">Слон</button>
+
+                    <button data-piece="knight">Конь</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==========================================
+        Game Over Modal
+        ========================================== -->
+
+        <div id="game-over-modal" class="game-over-hidden">
+
+            <div class="game-over-window">
+
+                <h2 id="game-over-title">
+
+                    Игра окончена
+
+                </h2>
+
+                <p id="game-over-message">
+
+                    Победили белые
+
+                </p>
+
+                <button id="game-over-button">
+
+                    Новая игра
+
+                </button>
+
+            </div>
+
+        </div>
+
     </main>
 
 
